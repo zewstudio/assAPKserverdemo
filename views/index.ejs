@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <style>
+    #box_item:hover
+    {
+      padding: 10px;
+      box-shadow: 5px 5px 10px 10px #b4b2b2;
+    }
+    a:hover
+    {
+      color: orangered;
+    }
+  </style>
+  <body class="container">
+      <h3 style="width: 100% ;text-align: center"><a href="insert" style="text-decoration: none">Thêm Ảnh</a></h3>
+      <div style="display: flex">
+<!--        teststart-->
+        <% var j=0; for(var i = 0;i<data.length;i++) { %>
+              <div id="box_item" style="border: 1px solid #969696;width: 400px;height: 1100px;padding: 1px;margin: 10px">
+          <!--  box      -->
+          <a href="/testshow/?id=<%= data[i]._id %>">
+            <img alt="Image" width="100%" height="65%" src="<%= data[i]._linkIMG %>" >
+          </a>
+          <div class="post_content uk-card-small uk-card-body" style="padding: 5px">
+            <div class="post_labels uk-panel uk-margin-small">
+            <span class="uk-margin-small-right uk-icon" data-uk-icon="icon:tag;ratio:.7">
+              <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="tag">
+                <path fill="none" stroke="#000" stroke-width="1.1" d="M17.5,3.71 L17.5,7.72 C17.5,7.96 17.4,8.2 17.21,8.39 L8.39,17.2 C7.99,17.6 7.33,17.6 6.93,17.2 L2.8,13.07 C2.4,12.67 2.4,12.01 2.8,11.61 L11.61,2.8 C11.81,2.6 12.08,2.5 12.34,2.5 L16.19,2.5 C16.52,2.5 16.86,2.63 17.11,2.88 C17.35,3.11 17.48,3.4 17.5,3.71 L17.5,3.71 Z"></path>
+                <circle cx="14" cy="6" r="1"></circle>
+              </svg>
+            </span>
+
+              <span class="uk-margin-xsmall-right"> </span><a href="#" style="text-decoration: none" rel="tag"><%= data[i]._tag %></a>
+            </div>
+            <h2 class="post_title entry-title uk-margin">
+              <a href="#" rel="bookmark" style="text-decoration: none"><%= data[i]._title %></a>
+            </h2>
+            <div class="post_snippet entry-summary uk-position-relative">
+              <p id="body6558803843731099531"><%= data[i]._content.slice(0,100) %>...
+                <a href="#" style="text-decoration: none">Read more</a>
+              </p>
+
+            </div>
+            <ul style="text-align: center">
+              <li style="float: left;list-style-type: none;margin-top: 10px;margin-left: 40px">
+                <div class="post_meta uk-grid uk-grid-small" >
+                  <div class="post_date uk-width-auto">
+                  <span class="uk-margin-small-right uk-icon" data-uk-icon="icon: clock; ratio: .7">
+                    <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="clock">
+                      <circle fill="none" stroke="#000" stroke-width="1.1" cx="10" cy="10" r="9"></circle>
+                      <rect x="9" y="4" width="1" height="7"></rect>
+                      <path fill="none" stroke="#000" stroke-width="1.1" d="M13.018,14.197 L9.445,10.625"></path>
+                    </svg>
+                  </span>
+                    <span>
+                    <time class="published" datetime="2022-08-03T20:55:00+07:00" title="2022-08-03T20:55:00+07:00"><%= data[i]._timeUpload %></time>
+                  </span>
+                  </div>
+                </div>
+              </li>
+              <li style="float: left;list-style-type: none;margin: 10px">
+                <div class="post_share uk-width-auto" >
+              <span class="action">
+                <span class="uk-margin-small-right uk-icon" data-uk-icon="icon: social; ratio: .7">
+                  <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="social">
+                    <line fill="none" stroke="#000" stroke-width="1.1" x1="13.4" y1="14" x2="6.3" y2="10.7"></line>
+                    <line fill="none" stroke="#000" stroke-width="1.1" x1="13.5" y1="5.5" x2="6.5" y2="8.8"></line>
+                    <circle fill="none" stroke="#000" stroke-width="1.1" cx="15.5" cy="4.6" r="2.3"></circle>
+                    <circle fill="none" stroke="#000" stroke-width="1.1" cx="15.5" cy="14.8" r="2.3"></circle>
+                    <circle fill="none" stroke="#000" stroke-width="1.1" cx="4.5" cy="9.8" r="2.3"></circle>
+                  </svg></span><span>Share</span></span>
+                </div>
+
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <% if(j==2){ %>
+             </div>
+            <div style="display: flex">
+        <% j=-1 } j++ } %>
+<!--        -->
+
+<!--      testend-->
+      </div>
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>

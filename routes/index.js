@@ -28,6 +28,13 @@ router.get('/index', function(req, res, next) {
       res.render('index', { title: 'Assignment-Home',data:result });
   });
 });
+router.get('/getData', function(req, res, next) {
+
+    ImageBox.find({},function (error,result){
+        if(error) throw error;
+        res.send(result);
+    });
+});
 router.get('/testshow/', function(req, res, next) {
     const id = req.query.id
     ImageBox.findOne({_id:id},function (error,result){

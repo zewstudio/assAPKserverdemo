@@ -122,5 +122,25 @@ router.get('/test',function (req,res,next){
     res.send("Title: "+result[0]._title+"\n  --  Content :"+result[0]._content+"\n  --  tag: "+result[0]._tag[0] + "\n   --  Time: "+result[0]._timeUpload +"\n   --- Link: "+result[0]._linkIMG);
   });
 })
+router.post('/createImageBox',async function(req,res){
+    var titleGet = req.body.title_;
+    var tagGet = req.body.tag_;
+    var contentGet = req.body.content_;
+    var linkGet = req.body.link_;
+    var timeUploadGet = (today_.getHours())+"h : "+(today_.getMinutes())+"' [ "+(today_.getDay())+"-"+(today_.getMonth())+"-"+(today_.getFullYear())+" ]";
+    const imageBox = new ImageBox({
+        _title:titleGet,
+        _content:contentGet,
+        _tag:tagGet,
+        _timeUpload:timeUploadGet,
+        _linkIMG:linkGet,
+
+    })
+    await imageBox.save();
+    res.send({
+        statusCode:200,
+        message:'Thành Công !!!'
+    })
+});
 
 module.exports = router;

@@ -122,7 +122,7 @@ router.get('/test',function (req,res,next){
     res.send("Title: "+result[0]._title+"\n  --  Content :"+result[0]._content+"\n  --  tag: "+result[0]._tag[0] + "\n   --  Time: "+result[0]._timeUpload +"\n   --- Link: "+result[0]._linkIMG);
   });
 })
-router.post('/createImageBox/',function(req,res){
+router.post('/createImageBox/',async function(req,res){
     var titleGet = req.body.title_;
     var tagGet = req.body.tag_;
     var contentGet = req.body.content_;
@@ -132,7 +132,7 @@ router.post('/createImageBox/',function(req,res){
         _title: titleGet , _content: contentGet , _tag : tagGet , _timeUpload: timeUploadGet , _linkIMG:linkGet
     };
       res.send("123");
-    ImageBox.insertMany([newValue],async function (error,result){
+    ImageBox.insertMany([newValue],function (error,result){
       if(error) throw error;
           res.send("Insert Thanh Cong");
 //           res.send({

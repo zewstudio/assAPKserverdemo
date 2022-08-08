@@ -26,12 +26,14 @@ router.get('/index', function(req, res, next) {
   ImageBox.find({},function (error,result){
     if(error) throw error;
       res.render('index', { title: 'Assignment-Home',data:result });
+        console.log("-.-");
   });
 });
 router.get('/getData', function(req, res, next) {
 
     ImageBox.find({},function (error,result){
         if(error) throw error;
+          
         res.send(result);
     });
 });

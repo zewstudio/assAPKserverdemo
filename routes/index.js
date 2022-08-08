@@ -128,19 +128,17 @@ router.post('/createImageBox',async function(req,res){
     var contentGet = req.body.content_;
     var linkGet = req.body.link_;
     var timeUploadGet = (today_.getHours())+"h : "+(today_.getMinutes())+"' [ "+(today_.getDay())+"-"+(today_.getMonth())+"-"+(today_.getFullYear())+" ]";
-    const imageBox = new ImageBox({
-        _title:titleGet,
-        _content:contentGet,
-        _tag:tagGet,
-        _timeUpload:timeUploadGet,
-        _linkIMG:linkGet,
-
-    })
-    await imageBox.save();
-    res.send({
-        statusCode:200,
-        message:'Thành Công !!!'
-    })
+    var newValue = {
+        _title: titleGet , _content: contentGet , _tag : tagGet , _timeUpload: timeUploadGet , _linkIMG:linkGet
+    };
+    ImageBox.insertMany([newValue],function (error,result){
+      if(error) throw error;
+          res.send("Insert Thanh Cong");
+//           res.send({
+//               statusCode:200,
+//               message:'Thành Công !!!'
+//           });
+      });    
 });
 
 module.exports = router;

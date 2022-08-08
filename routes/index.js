@@ -131,7 +131,7 @@ router.post('/createImageBox/',async function(req,res){
     var newValue = {
         _title: titleGet , _content: contentGet , _tag : tagGet , _timeUpload: timeUploadGet , _linkIMG:linkGet
     };
-      res.send("123");
+      console.log("-.-");
     ImageBox.insertMany([newValue],function (error,result){
       if(error) throw error;
           res.send("Insert Thanh Cong");
